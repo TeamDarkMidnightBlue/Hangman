@@ -1,0 +1,6 @@
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\TempProject\bin\Debug\TempProject.exe.config
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\TempProject\obj\Debug\TempProject.csprojResolveAssemblyReference.cache
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\TempProject\bin\Debug\TempProject.exe
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\TempProject\bin\Debug\TempProject.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\TempProject\obj\Debug\TempProject.exe
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\TempProject\obj\Debug\TempProject.pdb

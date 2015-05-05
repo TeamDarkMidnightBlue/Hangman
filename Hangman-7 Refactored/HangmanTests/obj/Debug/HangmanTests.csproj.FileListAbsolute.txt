@@ -1,0 +1,7 @@
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\bin\Debug\HangmanTests.dll
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\bin\Debug\HangmanTests.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\bin\Debug\HangmanGame.exe
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\bin\Debug\HangmanGame.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\obj\Debug\HangmanTests.csprojResolveAssemblyReference.cache
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\obj\Debug\HangmanTests.dll
+\\psf\Dropbox\Personal\SoftUni\Level 2\QPC\team project\Hangman\Hangman-7 Refactored\HangmanTests\obj\Debug\HangmanTests.pdb
