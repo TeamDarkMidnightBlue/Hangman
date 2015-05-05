@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-﻿namespace Hangman
-=======
-﻿using System.Linq;
-using System.Text;
-
 namespace HangmanGame
->>>>>>> origin/master
 {
     using System;
     using System.Linq;
+    using System.Text;
 
     /// <summary>
     /// The class serves as container for a word to be guessed by the user,
@@ -18,12 +12,14 @@ namespace HangmanGame
     /// 
     public class Word : WordBase
     {
-<<<<<<< HEAD
         private char[] revealedWord;
         private char[] hiddenWord;
 
+        //remove below fields after refactoring:
         private string w;
         private System.Text.StringBuilder PrintedWord = new System.Text.StringBuilder();
+        private string _word;
+        private StringBuilder _printedWord = new StringBuilder();
 
         public Word(string word)
             : base(word)
@@ -84,32 +80,23 @@ namespace HangmanGame
 
         //remove after refactoring
         public void SetPlayedWord(string theWord)
-=======
-        private string _word;
-        private StringBuilder _printedWord = new StringBuilder();
+        {
+
+        }
+        
+        
 
         public void SetWordToBeGuessed(string inputWord)
->>>>>>> origin/master
         {
             _word = inputWord;
         }
 
-<<<<<<< HEAD
-        //remove after refactoring
-        public string GetPlayedWord()
-=======
         public string GetWordToBeGuessed()
->>>>>>> origin/master
         {
             return _word;
         }
 
-<<<<<<< HEAD
-        //remove after refactoring
-        public void SetPrintedWord(System.Text.StringBuilder theWord)
-=======
         public void SetPrintedWord(StringBuilder printedWord)
->>>>>>> origin/master
         {
             _printedWord = printedWord;
         }
@@ -120,12 +107,7 @@ namespace HangmanGame
             return _printedWord.ToString();
         }
 
-<<<<<<< HEAD
-        //remove after refactoring. Or move to different place. Breaks single responsibility principle.
-        public bool Isletter(char Theletter)
-=======
         public bool IsALetter(char inputLetter)
->>>>>>> origin/master
         {
             if (char.ToLower(inputLetter) >= 'a' && char.ToLower(inputLetter) <= 'z')
                 return true;
@@ -133,22 +115,14 @@ namespace HangmanGame
                 return false;
         }
 
-<<<<<<< HEAD
         //remove after refactoring
-        public bool CheckForLetter(char TheLetter)
-=======
         public bool CheckForLetter(char inputLetter)
->>>>>>> origin/master
         {
             return _word.Contains(char.ToLower(inputLetter));
         }
 
-<<<<<<< HEAD
         //remove after refactoring
-        public string WriteTheLetter(char TheLetter)
-=======
         public string WriteTheLetter(char inputLetter)
->>>>>>> origin/master
         {
 
             for (int wordLength = 0; wordLength < _word.Length - 1; wordLength++)
@@ -162,12 +136,8 @@ namespace HangmanGame
             return _printedWord.ToString();
         }
 
-<<<<<<< HEAD
-        //remove after refactoring
-        public int NumberOfInput(char TheLetter)
-=======
+
         public int NumberOfInput(char inputLetter)
->>>>>>> origin/master
         {
             return _word.Where((t, wordLength) => _word[wordLength].Equals(char.ToLower(inputLetter))).Count();
         }

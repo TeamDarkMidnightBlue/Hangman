@@ -2,7 +2,7 @@
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Hangman;
+    using HangmanGame;
 
     [TestClass]
     public class WordTests

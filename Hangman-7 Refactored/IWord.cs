@@ -1,4 +1,4 @@
-﻿namespace Hangman
+﻿namespace HangmanGame
 {
     public interface IWord
     {
