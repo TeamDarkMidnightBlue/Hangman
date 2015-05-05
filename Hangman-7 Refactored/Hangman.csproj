@@ -42,11 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IWord.cs" />
+    <Compile Include="classes\WordFactory.cs" />
+    <Compile Include="interfaces\IWord.cs" />
+    <Compile Include="interfaces\IWordFactory.cs" />
     <Compile Include="MainClass.cs" />
-    <Compile Include="TopPlayer.cs" />
-    <Compile Include="Word.cs" />
-    <Compile Include="WordBase.cs" />
+    <Compile Include="classes\TopPlayer.cs" />
+    <Compile Include="classes\Word.cs" />
+    <Compile Include="classes\WordBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="engine\" />
+    <Folder Include="enums\" />
+    <Folder Include="resources\" />
+    <Folder Include="structures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

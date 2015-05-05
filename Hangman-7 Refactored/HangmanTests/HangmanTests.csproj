@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\kpkproekt.csproj">
+    <ProjectReference Include="..\Hangman.csproj">
       <Project>{530f3bea-beb1-4392-af32-47dfa4305bb9}</Project>
-      <Name>kpkproekt</Name>
+      <Name>Hangman</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
