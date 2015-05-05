@@ -1,75 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 
-namespace Hangman
+namespace HangmanGame
 {
     class Word
     {
-        private string w;
-        private System.Text.StringBuilder PrintedWord = new System.Text.StringBuilder();
+        private string _word;
+        private StringBuilder _printedWord = new StringBuilder();
 
-        public void SetPlayedWord(string theWord)
+        public void SetWordToBeGuessed(string inputWord)
         {
-            this.w = theWord;
+            _word = inputWord;
         }
 
-        public string GetPlayedWord()
+        public string GetWordToBeGuessed()
         {
-            return this.w;
+            return _word;
         }
 
-        public void SetPrintedWord(System.Text.StringBuilder theWord)
+        public void SetPrintedWord(StringBuilder printedWord)
         {
-            this.PrintedWord = theWord;
+            _printedWord = printedWord;
         }
 
         public string GetPrintedWord()
         {
-            return this.PrintedWord.ToString();
+            return _printedWord.ToString();
         }
 
-        public bool Isletter(char Theletter)
+        public bool IsALetter(char inputLetter)
         {
-            if (char.ToLower(Theletter) >= 'a' && char.ToLower(Theletter) <= 'z')
+            if (char.ToLower(inputLetter) >= 'a' && char.ToLower(inputLetter) <= 'z')
                 return true;
             else
                 return false;
         }
 
-        public bool CheckForLetter(char TheLetter)
+        public bool CheckForLetter(char inputLetter)
         {
-            if (w.Contains(char.ToLower(TheLetter)))
-            {
-                return true;
-            }
-            else return false;
+            return _word.Contains(char.ToLower(inputLetter));
         }
 
-        public string WriteTheLetter(char TheLetter)
+        public string WriteTheLetter(char inputLetter)
         {
 
-            for (int WordLenght = 0; WordLenght < w.Length - 1; WordLenght++)
+            for (int wordLength = 0; wordLength < _word.Length - 1; wordLength++)
             {
-                if (this.w.IndexOf(char.ToLower(TheLetter), WordLenght) >= 0)
+                if (_word.IndexOf(char.ToLower(inputLetter), wordLength) >= 0)
                 {
-                    this.PrintedWord[this.w.IndexOf(char.ToLower(TheLetter), WordLenght) * 2] = TheLetter;
+                    _printedWord[_word.IndexOf(char.ToLower(inputLetter), wordLength) * 2] = inputLetter;
                 }
             }
 
-            return PrintedWord.ToString();
+            return _printedWord.ToString();
         }
 
-        public int NumberOfInput(char TheLetter)
+        public int NumberOfInput(char inputLetter)
         {
-            int Number = 0;
-            for (int WordLenght = 0; WordLenght < w.Length; WordLenght++)
-            {
-                if (this.w[WordLenght].Equals(char.ToLower(TheLetter))) 
-                Number++;
-            }
-            return Number;
+            return _word.Where((t, wordLength) => _word[wordLength].Equals(char.ToLower(inputLetter))).Count();
         }
     }
 }
