@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 ﻿namespace Hangman
+=======
+﻿using System.Linq;
+using System.Text;
+
+namespace HangmanGame
+>>>>>>> origin/master
 {
     using System;
     using System.Linq;
@@ -11,6 +18,7 @@
     /// 
     public class Word : WordBase
     {
+<<<<<<< HEAD
         private char[] revealedWord;
         private char[] hiddenWord;
 
@@ -76,72 +84,92 @@
 
         //remove after refactoring
         public void SetPlayedWord(string theWord)
+=======
+        private string _word;
+        private StringBuilder _printedWord = new StringBuilder();
+
+        public void SetWordToBeGuessed(string inputWord)
+>>>>>>> origin/master
         {
-            this.w = theWord;
+            _word = inputWord;
         }
 
+<<<<<<< HEAD
         //remove after refactoring
         public string GetPlayedWord()
+=======
+        public string GetWordToBeGuessed()
+>>>>>>> origin/master
         {
-            return this.w;
+            return _word;
         }
 
+<<<<<<< HEAD
         //remove after refactoring
         public void SetPrintedWord(System.Text.StringBuilder theWord)
+=======
+        public void SetPrintedWord(StringBuilder printedWord)
+>>>>>>> origin/master
         {
-            this.PrintedWord = theWord;
+            _printedWord = printedWord;
         }
 
         //remove after refactoring
         public string GetPrintedWord()
         {
-            return this.PrintedWord.ToString();
+            return _printedWord.ToString();
         }
 
+<<<<<<< HEAD
         //remove after refactoring. Or move to different place. Breaks single responsibility principle.
         public bool Isletter(char Theletter)
+=======
+        public bool IsALetter(char inputLetter)
+>>>>>>> origin/master
         {
-            if (char.ToLower(Theletter) >= 'a' && char.ToLower(Theletter) <= 'z')
+            if (char.ToLower(inputLetter) >= 'a' && char.ToLower(inputLetter) <= 'z')
                 return true;
             else
                 return false;
         }
 
+<<<<<<< HEAD
         //remove after refactoring
         public bool CheckForLetter(char TheLetter)
+=======
+        public bool CheckForLetter(char inputLetter)
+>>>>>>> origin/master
         {
-            if (w.Contains(char.ToLower(TheLetter)))
-            {
-                return true;
-            }
-            else return false;
+            return _word.Contains(char.ToLower(inputLetter));
         }
 
+<<<<<<< HEAD
         //remove after refactoring
         public string WriteTheLetter(char TheLetter)
+=======
+        public string WriteTheLetter(char inputLetter)
+>>>>>>> origin/master
         {
 
-            for (int WordLenght = 0; WordLenght < w.Length - 1; WordLenght++)
+            for (int wordLength = 0; wordLength < _word.Length - 1; wordLength++)
             {
-                if (this.w.IndexOf(char.ToLower(TheLetter), WordLenght) >= 0)
+                if (_word.IndexOf(char.ToLower(inputLetter), wordLength) >= 0)
                 {
-                    this.PrintedWord[this.w.IndexOf(char.ToLower(TheLetter), WordLenght) * 2] = TheLetter;
+                    _printedWord[_word.IndexOf(char.ToLower(inputLetter), wordLength) * 2] = inputLetter;
                 }
             }
 
-            return PrintedWord.ToString();
+            return _printedWord.ToString();
         }
 
+<<<<<<< HEAD
         //remove after refactoring
         public int NumberOfInput(char TheLetter)
+=======
+        public int NumberOfInput(char inputLetter)
+>>>>>>> origin/master
         {
-            int Number = 0;
-            for (int WordLenght = 0; WordLenght < w.Length; WordLenght++)
-            {
-                if (this.w[WordLenght].Equals(char.ToLower(TheLetter))) 
-                Number++;
-            }
-            return Number;
+            return _word.Where((t, wordLength) => _word[wordLength].Equals(char.ToLower(inputLetter))).Count();
         }
 
         /// <summary>
