@@ -13,7 +13,7 @@
             this.wordsRepository.AddRange(words);
         }
 
-        public WordFactory(IList<string> words)
+        public WordFactory(IEnumerable<string> words)
         {
             this.wordsRepository.AddRange(words);
         }
