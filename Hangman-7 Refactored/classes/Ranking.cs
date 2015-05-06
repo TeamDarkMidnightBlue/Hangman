@@ -18,21 +18,37 @@ namespace HangmanGame
 
         public void AddPlayer(Player player)
         {
+            if (this.players.Count > 4)
+            {
+                List<Player> rankedPlayers = this.players.OrderBy(pl => pl.Score).ToList<Player>();
+                if (rankedPlayers[4].Score > player.Score)
+                {
+                    rankedPlayers = rankedPlayers.Take(rankedPlayers.Count() - 1).ToList<Player>();
+                    this.players = rankedPlayers;
+                }
+            }
+
             this.players.Add(player);
         }
 
         public bool IsPlayerTop(Player player, bool playerHasUsedHelp)
         {
-            if (this.players.Count < 6)
+            if (playerHasUsedHelp)
+            {
+                return false;
+            }
+
+            if (this.players.Count < 5)
             {
                 return true;
             }
             else
             {
-                Player[] rankedPlayers = this.players.OrderBy(pl => pl.Score).ToArray();
-                if (rankedPlayers[4].Score < player.Score && !playerHasUsedHelp)
+                List<Player> rankedPlayers = this.players.OrderBy(pl => pl.Score).ToList<Player>();
+                if (rankedPlayers[4].Score > player.Score)
                 {
-                    rankedPlayers = rankedPlayers.Take(rankedPlayers.Count() - 1).ToArray();
+                    rankedPlayers = rankedPlayers.Take(rankedPlayers.Count() - 1).ToList<Player>();
+                    this.players = rankedPlayers;
                     return true;
                 }
 

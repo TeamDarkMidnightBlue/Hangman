@@ -7,13 +7,13 @@
         public static void Main(string[] args)
         {
             bool isRunning = true;
+            Ranking ranking = new Ranking();
             WordFactory wordFactory = new WordFactory(WordRepository.Words);
 
             // This is the main loop, used for exiting or restarting the game
             while (isRunning)
             {
                 Player player = new Player(false, 0);
-                Ranking ranking = new Ranking();
                 Word wordToGuess = (Word) wordFactory.CreateWord();
 
                 Console.Write(Messages.WelcomeMessage);
@@ -41,7 +41,7 @@
                                 Console.WriteLine(ranking.GetRanking());
                                 break;
                             case "help":
-                                Help(player, wordToGuess);
+                                Help(ref player, wordToGuess);
                                 break;
                             default:
                             {
@@ -69,6 +69,7 @@
                             }
                             else
                             {
+                                player.Score++;
                                 Console.WriteLine(Messages.WrongGuessMessage);
                             }
                         }
@@ -101,16 +102,16 @@
 
         private static bool IsValid(string input)
         {
-            bool result = (input.Length == 1 && char.ToLower(input[0]) > 'a' && char.ToLower(input[0]) < 'z');
+            bool result = (input.Length == 1 && char.ToLower(input[0]) >= 'a' && char.ToLower(input[0]) <= 'z');
             return result;
         }
 
         //this doesn't work properly yet..
-        private static void Help(Player player, Word currentWord)
+        private static void Help(ref Player player, Word currentWord)
         {
-            Console.WriteLine(Messages.RevealNextLetterMessage, currentWord.WordToGuess.ToCharArray()[currentWord.WordToGuess.IndexOf('_') / 2]);
-            int firstMissingLetter = currentWord.WordToGuess.IndexOf('_');
-            currentWord.Guess(currentWord.WordToGuess.ToCharArray()[firstMissingLetter / 2]);
+            Console.WriteLine(Messages.RevealNextLetterMessage, currentWord.RevealedWord.ToCharArray()[currentWord.HiddenWord.IndexOf('_')]);
+            int firstMissingLetter = currentWord.HiddenWord.IndexOf('_');
+            currentWord.Guess(currentWord.RevealedWord.ToCharArray()[firstMissingLetter]);
             player.HasUsedHelp = true;
         }
     }
