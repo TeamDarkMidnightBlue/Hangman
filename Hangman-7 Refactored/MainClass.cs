@@ -4,8 +4,11 @@ using System.Text;
 
 namespace HangmanGame
 {
-    class MainClass
+    public class MainClass
     {
+        //New class Ranking:
+        private static Ranking theRanking = new Ranking();
+
         private const int InputLettersAllowedCount = 1;
         private const double NotRealPlayer = 1000000000.5;
 
@@ -148,16 +151,24 @@ namespace HangmanGame
                     {
                         
                         Console.Write("\nPlease enter your name for the top scoreboard: ");
-                                                                       
-                        _topPlayers[_gamesPlayedCounter] = new TopPlayer { PlayerName = Console.ReadLine(), PlayerScore = playerMistakes };
 
-                        if (_gamesPlayedCounter < 5)
-                        {
-                            _gamesPlayedCounter++;
-                        }
+                        //Example use of the new classes Ranking and Player:
+                        string name = Console.ReadLine();
+                        Player player = new Player(name);
+                        player.AddScore(playerMistakes);
+                        theRanking.AddPlayer(player);
 
-                        Array.Sort(_topPlayers, (topPlayer1, topPlayer2) => topPlayer1.PlayerScore.CompareTo(topPlayer2.PlayerScore));
-                        Top();
+                        Console.WriteLine(theRanking.GetRanking());
+
+                        _topPlayers[_gamesPlayedCounter] = new TopPlayer { PlayerName = name, PlayerScore = playerMistakes };
+
+                        //if (_gamesPlayedCounter < 5)
+                        //{
+                        //    _gamesPlayedCounter++;
+                        //}
+
+                        //Array.Sort(_topPlayers, (topPlayer1, topPlayer2) => topPlayer1.PlayerScore.CompareTo(topPlayer2.PlayerScore));
+                        //Top();
                     }
                     else if (!betterThanLast)
                     {

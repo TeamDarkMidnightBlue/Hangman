@@ -31,6 +31,11 @@
             StringBuilder Ranking = new StringBuilder();
             int rank = 1;
 
+            if (this.players.Count == 0)
+            {
+                return "Ranking is empty.";
+            }
+
             var sortedPlayers = this.players.OrderBy(player => player.TopScore);
 
             foreach (var player in sortedPlayers)
