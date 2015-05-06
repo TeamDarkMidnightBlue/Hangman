@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Player.cs" />
+    <Compile Include="classes\Ranking.cs" />
     <Compile Include="classes\WordFactory.cs" />
     <Compile Include="interfaces\IWord.cs" />
     <Compile Include="interfaces\IWordFactory.cs" />
@@ -49,6 +51,8 @@
     <Compile Include="classes\TopPlayer.cs" />
     <Compile Include="classes\Word.cs" />
     <Compile Include="classes\WordBase.cs" />
+    <Compile Include="utils\Messages.cs" />
+    <Compile Include="utils\WordRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="engine\" />
