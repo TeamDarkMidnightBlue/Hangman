@@ -1,4 +1,7 @@
-﻿namespace HangmanGame
+﻿using System;
+using System.Runtime.CompilerServices;
+
+namespace HangmanGame
 {
     using System.Collections.Generic;
     using System.Text;
@@ -18,35 +21,45 @@
             this.players.Add(player);
         }
 
-        public List<Player> Players
+        public bool IsPlayerTop(Player player, bool playerHasUsedHelp)
         {
-            get
+            if (this.players.Count < 6)
             {
-                return this.players;
+                return true;
+            }
+            else
+            {
+                Player[] rankedPlayers = this.players.OrderBy(pl => pl.Score).ToArray();
+                if (rankedPlayers[4].Score < player.Score && !playerHasUsedHelp)
+                {
+                    rankedPlayers = rankedPlayers.Take(rankedPlayers.Count() - 1).ToArray();
+                    return true;
+                }
+
+                return false;
             }
         }
 
         public string GetRanking()
         {
-            StringBuilder Ranking = new StringBuilder();
-            int rank = 1;
+            StringBuilder ranking = new StringBuilder();
 
             if (this.players.Count == 0)
             {
                 return "Ranking is empty.";
             }
 
-            var sortedPlayers = this.players.OrderBy(player => player.TopScore);
+            var sortedPlayers = this.players.OrderBy(player => player.Score);
+
+            ranking.Append("Scoreboard: \n");
 
             foreach (var player in sortedPlayers)
             {
-                string playerData = string.Format("{0}. Name: {1}, Top score: {2}, All scores: {3}\n", 
-                    rank, player.Name, player.TopScore, player.AllScores());
-                Ranking.Append(playerData);
-                rank++;
+                string playerData = string.Format("{0} {1}\n", player.Score, player.Name);
+                ranking.Append(playerData);
             }
 
-            return Ranking.ToString();
+            return ranking.ToString();
         }
     }
 }

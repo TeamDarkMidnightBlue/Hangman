@@ -6,8 +6,8 @@
             "\nUse 'top' to view the top scoreboard, 'restart' to start a new game, " +
             "\n'help' to cheat and 'exit' to quit the game.\n";
         public const string SecretWordMessage = "The secret word is {0}.";
-        public const string EnterGuessdMessage = "Enter your guess: {0}.";
-        public const string CorrectGuessMessage = "Good job! You revealed {0}";
+        public const string EnterGuessMessage = "Enter your guess: ";
+        public const string CorrectGuessMessage = "Good job! You revealed {0} letter";
         public const string WrongGuessMessage = "Sorry! There are no unrevealed letters.";
         public const string IncorrectCommandMessage = "Incorect command. Please, try again.";
         public const string RestartingGameMessage = "Hangman has restarted.";

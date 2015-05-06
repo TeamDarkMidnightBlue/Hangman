@@ -45,6 +45,7 @@
     <Compile Include="classes\Player.cs" />
     <Compile Include="classes\Ranking.cs" />
     <Compile Include="classes\WordFactory.cs" />
+    <Compile Include="engine\Engine.cs" />
     <Compile Include="interfaces\IWord.cs" />
     <Compile Include="interfaces\IWordFactory.cs" />
     <Compile Include="MainClass.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="utils\WordRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="engine\" />
     <Folder Include="enums\" />
     <Folder Include="resources\" />
     <Folder Include="structures\" />

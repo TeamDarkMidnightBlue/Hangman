@@ -8,8 +8,8 @@
     /// </summary>
     public class WordFactory : IWordFactory
     {
-        private List<string> wordsRepository = new List<string>();
-        private Random rnd = new Random();
+        private readonly List<string> wordsRepository = new List<string>();
+        private readonly Random rnd = new Random();
 
         /// <summary>
         /// Constructor accepting a variable number of strings

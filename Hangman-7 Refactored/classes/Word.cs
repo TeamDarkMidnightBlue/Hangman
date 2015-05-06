@@ -139,7 +139,8 @@ namespace HangmanGame
 
         public int NumberOfInput(char inputLetter)
         {
-            return _word.Where((t, wordLength) => _word[wordLength].Equals(char.ToLower(inputLetter))).Count();
+            return this.WordToGuess.Where((t, wordLength) => this.WordToGuess[wordLength]
+                                                                 .Equals(char.ToLower(inputLetter))).Count();
         }
 
         /// <summary>
@@ -165,10 +166,10 @@ namespace HangmanGame
         }
 
         /// <summary>
-        /// Private getters and setters for the word to be guessed.
+        /// Getters and setters for the word to be guessed.
         /// Throws exception if the word passed to the constructor contains illegal characters.
         /// </summary>
-        private string WordToGuess
+        public string WordToGuess
         {
             get
             {
@@ -186,6 +187,7 @@ namespace HangmanGame
                         throw new ArgumentException("The word can contain only characters from the English alphabet.");
                     }
                 }
+
                 this.revealedWord = word.ToCharArray();
             }
         }
