@@ -1,14 +1,10 @@
-﻿namespace HangmanGame
+﻿using System;
+
+namespace HangmanGame
 {
     public abstract class WordBase : IWord
     {
         public WordBase(string word)
-        {
-
-        }
-
-        //remove after refactoring
-        public WordBase()
         {
 
         }
@@ -18,5 +14,7 @@
         public abstract string RevealedWord { get; }
 
         public abstract bool Guess(char charToGuess);
+
+        public abstract char Help();
     }
 }

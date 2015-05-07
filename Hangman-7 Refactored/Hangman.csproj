@@ -45,20 +45,20 @@
     <Compile Include="classes\Player.cs" />
     <Compile Include="classes\Ranking.cs" />
     <Compile Include="classes\WordFactory.cs" />
+    <Compile Include="engine\HangmanEngine.cs" />
     <Compile Include="interfaces\IWord.cs" />
     <Compile Include="interfaces\IWordFactory.cs" />
-    <Compile Include="MainClass.cs" />
-    <Compile Include="classes\TopPlayer.cs" />
+    <Compile Include="HangmanApp.cs" />
     <Compile Include="classes\Word.cs" />
     <Compile Include="classes\WordBase.cs" />
     <Compile Include="utils\Messages.cs" />
     <Compile Include="utils\WordRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="engine\" />
     <Folder Include="enums\" />
-    <Folder Include="resources\" />
-    <Folder Include="structures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Hangman Class Diagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

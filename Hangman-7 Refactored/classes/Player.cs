@@ -10,11 +10,12 @@
     public class Player
     {
         private string name;
-        private List<double> scores = new List<double>();
+        private List<int> scores = new List<int>();
 
         public Player(string name)
         {
             this.Name = name;
+            this.scores.Add(0);
         }
 
         /// <summary>
@@ -40,13 +41,32 @@
         /// Adds a score to player's scores
         /// </summary>
         /// <param name="score">The score to be added</param>
-        public void AddScore (double score)
+        public void AddScore (int score)
         {
             if (score < 0 )
             {
                 throw new InvalidOperationException("Score must a positive number.");
             }
             this.scores.Add(score);
+        }
+
+        /// <summary>
+        /// Increases the score of the player for the current game he/she is playing.
+        /// </summary>
+        public void IncrementCurrentScore()
+        {
+            this.scores[this.scores.Count - 1]++;
+        }
+
+        /// <summary>
+        /// Method that returns the score of the player for the current game he/she is playing.
+        /// </summary>
+        public int CurrentScore
+        {
+            get
+            {
+                return this.scores[this.scores.Count - 1];
+            }
         }
 
         /// <summary>

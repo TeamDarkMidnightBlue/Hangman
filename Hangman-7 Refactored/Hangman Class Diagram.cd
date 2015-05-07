@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HangmanGame.HangmanApp" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>HangmanApp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HangmanGame.Player" Collapsed="true">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAJAAQAAAAEAAABAAAAAEAAEAA=</HashCode>
+      <FileName>classes\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HangmanGame.Ranking" Collapsed="true">
+    <Position X="1" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAIAgAAAAAAAA=</HashCode>
+      <FileName>classes\Ranking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HangmanGame.WordBase" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAQAAAAEBAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>classes\WordBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HangmanGame.WordFactory" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIAAAAAAAE=</HashCode>
+      <FileName>classes\WordFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HangmanGame.Word" Collapsed="true">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAIAAABQAgAAQAAIAEFAAAACAjIEIgIAAA=</HashCode>
+      <FileName>classes\Word.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HangmanGame.Messages" Collapsed="true">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAEAgAAAAAAAIAAAAADACQAAMAAAAQAAAAAAAAAIA=</HashCode>
+      <FileName>utils\Messages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HangmanGame.WordRepository" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>utils\WordRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HangmanGame.HangmanEngine" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAgAAAAAAAEAEAAAAAAAAAAAAAI=</HashCode>
+      <FileName>engine\HangmanEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="HangmanGame.IWord" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAQAAAAEBAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>interfaces\IWord.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HangmanGame.IWordFactory" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>interfaces\IWordFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -9,5 +9,7 @@
         bool IsGuessed { get; }
 
         bool Guess(char charToGuess);
+
+        char Help();
     }
 }

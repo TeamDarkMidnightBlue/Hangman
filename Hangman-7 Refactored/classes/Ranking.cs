@@ -13,8 +13,17 @@
             this.players = new List<Player>();
         } 
 
-        public void AddPlayer(Player player)
+        public void AddScore(Player player)
         {
+            foreach (Player existingPlayer in this.players)
+            {
+                if (existingPlayer.Name == player.Name)
+                {
+                    existingPlayer.AddScore(player.CurrentScore);
+                    return;
+                }
+            }
+
             this.players.Add(player);
         }
 
@@ -29,11 +38,15 @@
         public string GetRanking()
         {
             StringBuilder Ranking = new StringBuilder();
+
+            Ranking.AppendLine("Ranking:");
+
             int rank = 1;
 
             if (this.players.Count == 0)
             {
-                return "Ranking is empty.";
+                Ranking.AppendLine("Ranking is empty.");
+                return Ranking.ToString();
             }
 
             var sortedPlayers = this.players.OrderBy(player => player.TopScore);

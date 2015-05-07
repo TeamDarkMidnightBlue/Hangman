@@ -15,24 +15,12 @@ namespace HangmanGame
         private char[] revealedWord;
         private char[] hiddenWord;
 
-        //remove below fields after refactoring:
-        private string w;
-        private System.Text.StringBuilder PrintedWord = new System.Text.StringBuilder();
-        private string _word;
-        private StringBuilder _printedWord = new StringBuilder();
-
         public Word(string word)
             : base(word)
         {
             this.WordToGuess = word;
             string underscores = new string('_', this.revealedWord.Length);
             this.hiddenWord = underscores.ToCharArray();
-        }
-
-        //remove this after refactoring
-        public Word()
-        {
-
         }
 
         /// <summary>
@@ -77,71 +65,6 @@ namespace HangmanGame
             }
         }
 
-
-        //remove after refactoring
-        public void SetPlayedWord(string theWord)
-        {
-
-        }
-        
-        
-
-        public void SetWordToBeGuessed(string inputWord)
-        {
-            _word = inputWord;
-        }
-
-        public string GetWordToBeGuessed()
-        {
-            return _word;
-        }
-
-        public void SetPrintedWord(StringBuilder printedWord)
-        {
-            _printedWord = printedWord;
-        }
-
-        //remove after refactoring
-        public string GetPrintedWord()
-        {
-            return _printedWord.ToString();
-        }
-
-        public bool IsALetter(char inputLetter)
-        {
-            if (char.ToLower(inputLetter) >= 'a' && char.ToLower(inputLetter) <= 'z')
-                return true;
-            else
-                return false;
-        }
-
-        //remove after refactoring
-        public bool CheckForLetter(char inputLetter)
-        {
-            return _word.Contains(char.ToLower(inputLetter));
-        }
-
-        //remove after refactoring
-        public string WriteTheLetter(char inputLetter)
-        {
-
-            for (int wordLength = 0; wordLength < _word.Length - 1; wordLength++)
-            {
-                if (_word.IndexOf(char.ToLower(inputLetter), wordLength) >= 0)
-                {
-                    _printedWord[_word.IndexOf(char.ToLower(inputLetter), wordLength) * 2] = inputLetter;
-                }
-            }
-
-            return _printedWord.ToString();
-        }
-
-
-        public int NumberOfInput(char inputLetter)
-        {
-            return _word.Where((t, wordLength) => _word[wordLength].Equals(char.ToLower(inputLetter))).Count();
-        }
-
         /// <summary>
         /// Method that checks if a given letter is contained in the word.
         /// If yes, returns true and modifies the hidden word, replacing underscores with the letter.
@@ -150,7 +73,7 @@ namespace HangmanGame
         /// <returns></returns>
         override public bool Guess(char charToGuess)
         {
-            var isInWord = false;
+            bool isInWord = false;
 
             for (int i = 0; i < this.revealedWord.Length; i++)
             {
@@ -163,6 +86,31 @@ namespace HangmanGame
 
             return isInWord;
         }
+
+        /// <summary>
+        /// Asks the word to reveal the next hidden character.
+        /// </summary>
+        /// <returns>Returns the revealed character.</returns>
+        public override char Help()
+        {
+            if (this.IsGuessed)
+            {
+                throw new InvalidOperationException("The word is already guessed correctly.");
+            }
+
+            for (int i = 0; i < this.hiddenWord.Length; i++)
+            {
+                if (this.hiddenWord[i] == '_')
+                {
+                    char revealedLetter = this.revealedWord[i];
+                    this.Guess(revealedLetter);
+                    return revealedLetter;
+                }
+            }
+
+            return '_';
+        }
+
 
         /// <summary>
         /// Private getters and setters for the word to be guessed.
