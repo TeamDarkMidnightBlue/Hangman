@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman.csproj", "{530F3BEA-BEB1-4392-AF32-47DFA4305BB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempProject", "TempProject\TempProject.csproj", "{AA8FD769-6830-4C42-A73C-EED6748B96D6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanTests", "HangmanTests\HangmanTests.csproj", "{B4AD572E-7EEA-4B8F-9060-3EE90AF40530}"
 EndProject
 Global
@@ -23,14 +21,6 @@ Global
 		{530F3BEA-BEB1-4392-AF32-47DFA4305BB9}.Release|Any CPU.ActiveCfg = Release|x86
 		{530F3BEA-BEB1-4392-AF32-47DFA4305BB9}.Release|x86.ActiveCfg = Release|x86
 		{530F3BEA-BEB1-4392-AF32-47DFA4305BB9}.Release|x86.Build.0 = Release|x86
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Debug|x86.Build.0 = Debug|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Release|x86.ActiveCfg = Release|Any CPU
-		{AA8FD769-6830-4C42-A73C-EED6748B96D6}.Release|x86.Build.0 = Release|Any CPU
 		{B4AD572E-7EEA-4B8F-9060-3EE90AF40530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4AD572E-7EEA-4B8F-9060-3EE90AF40530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4AD572E-7EEA-4B8F-9060-3EE90AF40530}.Debug|x86.ActiveCfg = Debug|Any CPU

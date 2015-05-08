@@ -93,11 +93,6 @@ namespace HangmanGame
         /// <returns>Returns the revealed character.</returns>
         public override char Help()
         {
-            if (this.IsGuessed)
-            {
-                throw new InvalidOperationException("The word is already guessed correctly.");
-            }
-
             for (int i = 0; i < this.hiddenWord.Length; i++)
             {
                 if (this.hiddenWord[i] == '_')

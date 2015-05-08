@@ -1,12 +1,15 @@
 ﻿namespace HangmanGame
 {
     using System;
+    using System.Text;
 
-    public class HangmanEngine
+    public class HangmanEngine : IHangmanEngine
     {
         private IWordFactory wordFactory;
         private Ranking theRanking;
         private bool isRunning = true;
+        private IWord wordToGuess;
+        private StringBuilder output = new StringBuilder();
 
         public HangmanEngine(IWordFactory factory)
         {
@@ -14,102 +17,99 @@
             this.theRanking = new Ranking();
         }
 
+        public bool IsRunning
+        {
+            get
+            {
+                return this.isRunning;
+            }
+            set
+            {
+                this.isRunning = value;
+            }
+        }
+
+        public IWord WordToGuess
+        {
+            get
+            {
+                return this.wordToGuess;
+            }
+            set
+            {
+                this.wordToGuess = value;
+            }
+        }
+
+        public Ranking PlayersRanking
+        {
+            get
+            {
+                return this.theRanking;
+            }
+        }
+
+        public IWordFactory Factory
+        {
+            get
+            {
+                return this.wordFactory;
+            }
+        }
+
+        public StringBuilder Output
+        {
+            get
+            {
+                return this.output;
+            }
+        }
+
+        public bool HasUsedHelp { get; set; }
+
+        public Player CurrentPlayer { get; set; }
+
         public void Run()
         {
-            // This is the main loop, used for exiting or restarting the game
-            while (this.isRunning)
+            IExecutable startCommand = CommandFactory.Create("restart", this);
+            startCommand.Execute();
+
+            Console.WriteLine(this.output);
+
+            while (this.IsRunning)
             {
-                Word wordToGuess = (Word)wordFactory.CreateWord();
-                Player currentPlayer = new Player("guest");
-                bool hasUsedHelp = false;
+                this.ExecuteCommandLoop();
+            }
+        }
 
-                Console.Write(Messages.WelcomeMessage);
+        protected virtual void ExecuteCommandLoop()
+        {
+            this.Output.Clear();
 
-                // This is the game loop, which runs while the player tries to guess the word
-                while (!wordToGuess.IsGuessed && this.isRunning)
-                {
-                    Console.WriteLine(Messages.SecretWordMessage, wordToGuess.HiddenWord);
-                    Console.Write(Messages.EnterGuessMessage);
+            var inputCommand = Console.ReadLine();
 
-                    string playerInputString = Console.ReadLine();
-
-                    if (!IsValid(playerInputString))
-                    {
-                        bool restartGame = false;
-                        switch (playerInputString)
-                        {
-                            case "exit":
-                                isRunning = false;
-                                break;
-                            case "restart":
-                                restartGame = true;
-                                break;
-                            case "top":
-                                Console.WriteLine(theRanking.GetRanking());
-                                break;
-                            case "help":
-                                Console.WriteLine(Messages.RevealNextLetterMessage, wordToGuess.Help());
-                                hasUsedHelp = true;
-                                break;
-                            default:
-                                {
-                                    Console.WriteLine(Messages.IncorrectCommandMessage);
-                                    break;
-                                }
-                        }
-
-                        if (restartGame)
-                        {
-                            Console.WriteLine(Messages.RestartingGameMessage);
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (playerInputString != null)
-                        {
-                            char inputLetter = (char)playerInputString.ToCharArray()[0];
-
-                            if (wordToGuess.Guess(inputLetter))
-                            {
-                                Console.WriteLine(Messages.CorrectGuessMessage, inputLetter);
-                            }
-                            else
-                            {
-                                Console.WriteLine(Messages.WrongGuessMessage);
-                                currentPlayer.IncrementCurrentScore();
-                            }
-                        }
-
-                        if (wordToGuess.IsGuessed)
-                        {
-                            Console.WriteLine(Messages.WinningMessage, currentPlayer.CurrentScore);
-                            Console.WriteLine(Messages.SecretWordMessage, wordToGuess.RevealedWord);
-
-                            if (hasUsedHelp)
-                            {
-                                Console.WriteLine(Messages.CheatedMessage);
-                            }
-                            else
-                            {
-                                Console.Write(Messages.EnterNameMessage);
-                                string name = Console.ReadLine();
-
-                                if (name.Length > 0)
-                                {
-                                    currentPlayer.Name = name;
-                                }
-
-                                theRanking.AddScore(currentPlayer);
-                                Console.WriteLine(theRanking.GetRanking());
-                            }
-                        }
-                    }
-                }
+            if (inputCommand.Length == 1 && inputCommand[0] >= 'a' && inputCommand[0] <= 'z')
+            {
+                inputCommand = "guess " + inputCommand;
             }
 
-            Environment.Exit(0);
+            try
+            {
+                IExecutable command = CommandFactory.Create(inputCommand, this);
+                command.Execute();
+            }
+            catch (CommandException ex)
+            {
+                this.Output.AppendLine(ex.Message);
+            }
+            catch (InvalidOperationException)
+            {
+                this.Output.AppendLine(Messages.IncorrectCommandMessage);
+            }
+
+            Console.Write(this.Output);
         }
+
 
         private static bool IsValid(string input)
         {
